@@ -6,7 +6,7 @@ import Reviews from '../Reviews/Reviews';
 
 const ServiceDetails = () => {
     const data = useLoaderData();
-    const {img, name, price, priceUnit, ratings, ratingCount, points, description} = data;
+    const {img, name, price, priceUnit, ratings, points, description} = data;
     return (
         <div>
             <div className='lg:grid lg:grid-cols-3'>

@@ -13,7 +13,7 @@ const Reviews = (props) => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, []);
+  }, [reviews]);
 
   const handleAddReview = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const Reviews = (props) => {
     const review = {
       name: user?.displayName,
       email: user?.email,
-      img: user?.img,
+      img: user?.photoURL,
       serviceName: name,
       serviceId: _id,
       review: message,
@@ -50,7 +50,9 @@ const Reviews = (props) => {
   return (
     <div className="">
       <div>
-        <div className="mx-auto">
+        <div className="border overflow-scroll h-full border-slate-500 p-6 rounded-xl mx-auto">
+            <p className="text-xl mb-2">Reviews:</p>
+        <div>
           {reviews.map((review) => (
             <SingleReviewCard
               key={review._id}
@@ -58,9 +60,10 @@ const Reviews = (props) => {
             ></SingleReviewCard>
           ))}
         </div>
-        <div className="w-11/12 mx-auto">
+        </div>
+        <div className="mx-auto sticky rounded-t-xl bottom-0 bg-slate-800">
           <form onSubmit={handleAddReview}>
-            <div className="form-control w-full border p-5 rounded-xl border-gray-500">
+            <div className="form-control w-full border p-5 rounded-t-xl border-gray-500">
               <label className="label">
                 <span className="label-text">Add a review</span>
               </label>

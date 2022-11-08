@@ -53,17 +53,23 @@ const Reviews = (props) => {
         <div className="border overflow-scroll h-full border-slate-500 p-6 rounded-xl mx-auto">
             <p className="text-xl mb-2">Reviews:</p>
         <div>
-          {reviews.map((review) => (
-            <SingleReviewCard
-              key={review._id}
-              review={review}
-            ></SingleReviewCard>
-          ))}
+            {reviews?.length === 0 ?
+            <p>No reviews to show</p>
+            :
+            <div>
+                {reviews.map((review) => (
+                <SingleReviewCard
+                  key={review._id}
+                  review={review}
+                ></SingleReviewCard>
+              ))}
+            </div>
+            }
         </div>
         </div>
-        <div className="mx-auto sticky rounded-t-xl bottom-0 bg-slate-800">
+        <div className="mx-auto sticky rounded-xl bottom-0 bg-slate-800">
           <form onSubmit={handleAddReview}>
-            <div className="form-control w-full border p-5 rounded-t-xl border-gray-500">
+            <div className="form-control w-full border p-5 rounded-xl border-gray-500">
               <label className="label">
                 <span className="label-text">Add a review</span>
               </label>

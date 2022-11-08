@@ -63,10 +63,12 @@ const Header = () => {
         <div className="navbar-end">
           {
           user?.uid ?
-          <>
-          {user?.email}
+          <div className="flex items-center">
+          <div className="tooltip tooltip-left" data-tip={`${user?.displayName}`}>
+              <img className="w-10 rounded-full" src={user?.photoURL} alt=""></img>
+          </div>
           <Link className="btn ml-4 mr-4" onClick={handleLogOut}>Log Out</Link>
-          </>
+          </div>
           :
           <Link className="btn" to='/login'>Login</Link>
           }

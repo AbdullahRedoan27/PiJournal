@@ -38,10 +38,10 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Services</Link>
+                <Link to='/services'>Services</Link>
               </li>
               <li>
-                <Link>Blogs</Link>
+                <Link to='/blogs'>Blogs</Link>
               </li>
             </ul>
           </div>
@@ -53,10 +53,10 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link>Services</Link>
+              <Link to='/services'>Services</Link>
             </li>
             <li>
-              <Link>Blogs</Link>
+              <Link to='/blogs'>Blogs</Link>
             </li>
           </ul>
         </div>
@@ -65,7 +65,7 @@ const Header = () => {
           user?.uid ?
           <>
           {user?.email}
-          <Link className="btn ml-4 mr-4" onClick={handleLogOut} to='/login'>Log Out</Link>
+          <Link className="btn ml-4 mr-4" onClick={handleLogOut}>Log Out</Link>
           </>
           :
           <Link className="btn" to='/login'>Login</Link>

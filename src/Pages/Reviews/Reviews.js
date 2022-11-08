@@ -10,10 +10,10 @@ const Reviews = (props) => {
 
   const location = useLocation();
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(`http://localhost:5000/reviews?id=${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [reviews]);
+  }, [_id, reviews]);
 
   const handleAddReview = (event) => {
     event.preventDefault();

@@ -66,7 +66,9 @@ const AddService = () => {
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Price of your service? (Don't put "$" sign)</span>
+            <span className="label-text">
+              Price of your service? (Don't put "$" sign)
+            </span>
           </label>
           <input
             type="text"

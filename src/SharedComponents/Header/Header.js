@@ -42,24 +42,24 @@ const Header = () => {
                 <Link to="/services">Services</Link>
               </li>
               {user?.uid ? (
-              <div>
-                <li>
-                  <Link to="/myReviews">My Reviews</Link>
-                </li>
-                <li>
-                  <Link to="/addService">Add Service</Link>
-                </li>
-                <li>
-                  <Link to="/blogs">Blogs</Link>
-                </li>
-              </div>
-            ) : (
-              <div>
-                <li>
-                  <Link to="/blogs">Blogs</Link>
-                </li>
-              </div>
-            )}
+                <div>
+                  <li>
+                    <Link to="/myReviews">My Reviews</Link>
+                  </li>
+                  <li>
+                    <Link to="/addService">Add Service</Link>
+                  </li>
+                  <li>
+                    <Link to="/blogs">Blogs</Link>
+                  </li>
+                </div>
+              ) : (
+                <div>
+                  <li>
+                    <Link to="/blogs">Blogs</Link>
+                  </li>
+                </div>
+              )}
             </ul>
           </div>
           <div className="btn-wide btn btn-ghost normal-case text-3xl">
@@ -99,14 +99,23 @@ const Header = () => {
         <div className="navbar-end">
           {user?.uid ? (
             <>
-            <div className="tooltip tooltip-left" data-tip={user?.displayName}>
-            {user?.photoURL?
-              <img className="tooltip w-8 rounded-full border border-gray-200" src={user.photoURL} alt=""></img>
-              :
-              <FaUser></FaUser>
-            }
-            </div>
-            <Link onClick={handleLogOut} className="btn btn-sm mx-4">Log Out</Link>
+              <div
+                className="tooltip tooltip-left"
+                data-tip={user?.displayName}
+              >
+                {user?.photoURL ? (
+                  <img
+                    className="tooltip w-8 rounded-full border border-gray-200"
+                    src={user.photoURL}
+                    alt=""
+                  ></img>
+                ) : (
+                  <FaUser></FaUser>
+                )}
+              </div>
+              <Link onClick={handleLogOut} className="btn btn-sm mx-4">
+                Log Out
+              </Link>
             </>
           ) : (
             <Link className="btn" to="/login">

@@ -5,7 +5,7 @@ import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
 const Stats = () => {
   return (
     <div>
-      <h3 className="text-xl text-center mb-2">Our Statistics</h3>
+      <h3 className="text-xl text-center mb-2">Clients review statistics</h3>
       <div className="mx-auto text-center">
         <div className="stats bg-base-200 shadow">
           <div className="stat">

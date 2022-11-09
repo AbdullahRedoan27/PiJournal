@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { json, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
@@ -21,8 +21,26 @@ const Login = () => {
     logIn(email, password)
     .then(result => {
         const user = result.user;
-        alert('logged in')
-        form.reset();
+
+        const currentUser = {
+          email: user.email
+        }
+        //jwt token
+      fetch('http://localhost:5000/jwt',{
+        method:'post',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(currentUser)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        localStorage.setItem('PiToken', data.token)
+      })
+
+      alert('logged in')
+      form.reset();
         navigate(from, {replace: true})
         console.log(user);
     })

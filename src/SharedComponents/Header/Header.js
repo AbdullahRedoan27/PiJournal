@@ -41,9 +41,25 @@ const Header = () => {
               <li>
                 <Link to="/services">Services</Link>
               </li>
-              <li>
-                <Link to="/blogs">Blogs</Link>
-              </li>
+              {user?.uid ? (
+              <div>
+                <li>
+                  <Link to="/myReviews">My Reviews</Link>
+                </li>
+                <li>
+                  <Link to="/addService">Add Service</Link>
+                </li>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+              </div>
+            ) : (
+              <div>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+              </div>
+            )}
             </ul>
           </div>
           <div className="btn-wide btn btn-ghost normal-case text-3xl">
@@ -90,7 +106,7 @@ const Header = () => {
               <FaUser></FaUser>
             }
             </div>
-            <Link onClick={logOut} className="btn btn-sm mx-4">Log Out</Link>
+            <Link onClick={handleLogOut} className="btn btn-sm mx-4">Log Out</Link>
             </>
           ) : (
             <Link className="btn" to="/login">

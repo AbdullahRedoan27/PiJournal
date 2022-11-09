@@ -19,7 +19,7 @@ const AddService = () => {
             priceUnit: priceUnit
         }
 
-        fetch('http://localhost:3000/addService',{
+        fetch('http://localhost:5000/addService',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

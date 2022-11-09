@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import SingleReviewCard from "./SingleReviewCard";
+import {toast} from 'react-toastify';
 
 const Reviews = (props) => {
   const { user } = useContext(AuthContext);
@@ -46,7 +47,7 @@ const Reviews = (props) => {
         console.log(data);
         form.reset();
         if (data.acknowledged === true) {
-          alert("review added");
+            toast.success("review added");
         }
       })
       .catch((err) => console.error(err));

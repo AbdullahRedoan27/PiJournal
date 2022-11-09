@@ -8,7 +8,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import useTitleHook from "../../Hooks/useTitleHook";
 
 const ServiceDetails = () => {
-    useTitleHook("Service Details")
+  useTitleHook("Service Details");
   const data = useLoaderData();
   const { img, name, price, priceUnit, ratings, points, description } = data;
   return (

@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineDownloadDone } from "react-icons/md";
 import useTitleHook from "../../Hooks/useTitleHook";
+import {toast} from 'react-toastify';
 
 const EditReview = () => {
     useTitleHook("Edit review")
@@ -25,7 +26,7 @@ const EditReview = () => {
     .then(data => {
         console.log(data);
         if (data.modifiedCount > 0) {
-            alert('Review edited successfully')
+            toast.success('Review edited successfully')
         }
     })
   };

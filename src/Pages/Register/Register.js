@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitleHook from "../../Hooks/useTitleHook";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  useTitleHook("Register")
-const {createUser, updateUserProfile} = useContext(AuthContext)
+  useTitleHook("Register");
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
-const handleCreateUser = event =>{
-    event.preventDefault()
+  const handleCreateUser = (event) => {
+    event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value;
@@ -17,39 +18,38 @@ const handleCreateUser = event =>{
 
     const profile = {
       displayName: name,
-      photoURL: photo
-    }
+      photoURL: photo,
+    };
 
     createUser(email, password)
-    .then(result => {
+      .then((result) => {
         const user = result.user;
 
         const currentUser = {
-          email: user.email
-        }
+          email: user.email,
+        };
 
-        fetch('http://localhost:5000/jwt',{
-        method:'post',
-        headers:{
-          'content-type':'application/json'
-        },
-        body:JSON.stringify(currentUser)
-      })
-      .then(res => res.json())
-      .then(data =>{
-        console.log(data);
-        localStorage.setItem('PiToken', data.token)
-      })
-        alert('user Created');
+        fetch("http://localhost:5000/jwt", {
+          method: "post",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("PiToken", data.token);
+          });
+        toast.success("user Created");
         form.reset();
         console.log(user);
         updateUserProfile(profile)
-        .then(result=> console.log(result))
-        .catch(err => console.error(err))
-    })
-    .catch(error => console.error(error))
-}
-
+          .then((result) => console.log(result))
+          .catch((err) => console.error(err));
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div>
@@ -106,7 +106,11 @@ const handleCreateUser = event =>{
                   />
                   <label className="label">
                     <small>Already have an account?</small>
-                    <Link to='/login' href="#" className="label-text-alt link link-hover">
+                    <Link
+                      to="/login"
+                      href="#"
+                      className="label-text-alt link link-hover"
+                    >
                       Login
                     </Link>
                   </label>

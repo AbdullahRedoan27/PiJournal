@@ -19,6 +19,9 @@ const Reviews = (props) => {
     event.preventDefault();
     const form = event.target;
     const message = form.message.value;
+    const date = new Date();
+    const hh = new Date().getHours();
+    const mm = new Date().getMinutes();
 
     const review = {
       name: user?.displayName,
@@ -27,7 +30,8 @@ const Reviews = (props) => {
       serviceName: name,
       serviceId: _id,
       review: message,
-      time :new Date().getTime()
+      time :new Date(),
+      dateTime: {date, hh, mm}
     };
 
     fetch("http://localhost:5000/reviews", {

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = (props) => {
   const service = props.service;
-  console.log(service);
   const { name, description, img, price, 
     priceUnit, _id } = service;
   return (

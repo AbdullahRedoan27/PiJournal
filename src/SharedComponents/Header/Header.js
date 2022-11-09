@@ -87,7 +87,7 @@ const Header = () => {
             {user?.photoURL?
               <img  className="tooltip w-8 rounded-full border border-gray-200" src={user?.photoURL} alt=""></img>
               :
-                <FaUser></FaUser>
+              <FaUser></FaUser>
             }
             </div>
             <Link onClick={logOut} className="btn btn-sm mx-4">Log Out</Link>

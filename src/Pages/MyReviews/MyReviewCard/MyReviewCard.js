@@ -4,7 +4,10 @@ import { RiDeleteBinFill, RiEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const MyReviewCard = ({singlereview, handleDelete}) => {
-  const { name, email, img, review, serviceName, _id } = singlereview;
+  const { name, email, img, review, serviceName, _id, dateTime } = singlereview;
+  const {date, hh, mm} = dateTime;
+  const dateSliced = date.slice(0, 10);
+
   return (
     <div className="ml-3 mb-3 border border-slate-600 rounded-xl p-6">
       <div className="flex items-center justify-between">
@@ -26,7 +29,10 @@ const MyReviewCard = ({singlereview, handleDelete}) => {
         </div>
       </div>
       <small className="leading-none ml-4">{email}</small>
+      <div className="flex justify-between">
       <p className="ml-4">{`Reviewed on: "${serviceName}" service`}</p>
+      <p>{`${dateSliced}, ${hh}:${mm}`}</p>
+      </div>
       <p className="ml-4">{`"${review}"`}</p>
     </div>
   );

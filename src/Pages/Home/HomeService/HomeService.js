@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from '../../Services/ServiceCard';
 
 const HomeService = () => {
@@ -10,7 +11,7 @@ const HomeService = () => {
     },[])
 
     return (
-        <div>
+        <div className=''>
             <h2 className='text-center text-xl mt-5 mb-2'>Some of my popular services</h2>
             <div className='lg:grid lg:grid-cols-3 mx-auto w-11/12'>
             {
@@ -19,6 +20,9 @@ const HomeService = () => {
                     service={service}
                 ></ServiceCard>)
             }
+        </div>
+        <div className='flex justify-center mb-5'>
+        <Link to='/services' className='btn btn-primary'>View All</Link>
         </div>
         </div>
     );

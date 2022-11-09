@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useTitleHook from "../../Hooks/useTitleHook";
 
 const Register = () => {
+  useTitleHook("Register")
 const {createUser, updateUserProfile} = useContext(AuthContext)
 
 const handleCreateUser = event =>{
@@ -21,7 +23,7 @@ const handleCreateUser = event =>{
     createUser(email, password)
     .then(result => {
         const user = result.user;
-        
+
         const currentUser = {
           email: user.email
         }

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useTitleHook from '../../Hooks/useTitleHook';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
+    useTitleHook("Services")
     const [services, setServices] = useState([]);
 
     useEffect(()=>{

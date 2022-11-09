@@ -5,8 +5,10 @@ import { VscDebugBreakpointData } from "react-icons/vsc";
 import Reviews from "../Reviews/Reviews";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import useTitleHook from "../../Hooks/useTitleHook";
 
 const ServiceDetails = () => {
+    useTitleHook("Service Details")
   const data = useLoaderData();
   const { img, name, price, priceUnit, ratings, points, description } = data;
   return (
@@ -15,7 +17,7 @@ const ServiceDetails = () => {
         <div className="col-span-2">
           <PhotoProvider>
             <PhotoView src={img}>
-              <img src={img} alt="" />
+              <img className="rounded-xl" src={img} alt="" />
             </PhotoView>
           </PhotoProvider>
           <div className="flex justify-between mx-auto w-4/5">

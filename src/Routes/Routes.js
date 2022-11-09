@@ -9,7 +9,7 @@ import Services from '../Pages/Services/Services';
 import MyReviews from '../Pages/MyReviews/MyReviews';
 import AddService from '../Pages/AddService/AddService';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import EditReview from '../Pages/MyReviews/EditReview/EditReview';
+import EditReview from '../Pages/EditReview/EditReview';
 
 export const router = createBrowserRouter([
     {

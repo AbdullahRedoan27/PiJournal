@@ -2,8 +2,10 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineDownloadDone } from "react-icons/md";
+import useTitleHook from "../../Hooks/useTitleHook";
 
 const EditReview = () => {
+    useTitleHook("Edit review")
   const reviewData = useLoaderData();
   const { name, email, img, review, serviceName, _id } = reviewData;
 

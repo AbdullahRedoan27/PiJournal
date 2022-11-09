@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import logo from '../../images/logo wh.png';
+import { FaUser } from "react-icons/fa";
+import logo from "../../images/logo wh.png";
 
 const Header = () => {
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
-    .then(res => console.log(res))
-    .catch(err => console.error(err))
-  }
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="">
@@ -38,40 +39,64 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to='/services'>Services</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
-                <Link to='/blogs'>Blogs</Link>
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
           <div className="btn-wide btn btn-ghost normal-case text-3xl">
-          <img className="w-3/12" src={logo} alt=""></img>
-          <Link to='/'>PiJournal</Link>
+            <img className="w-3/12" src={logo} alt=""></img>
+            <Link to="/">PiJournal</Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to='/services'>Services</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='/blogs'>Blogs</Link>
+              <Link to="/services">Services</Link>
             </li>
+            {user?.uid ? (
+              <div className="flex">
+                <li>
+                  <Link to="/myReviews">My Reviews</Link>
+                </li>
+                <li>
+                  <Link to="/addService">Add Service</Link>
+                </li>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+              </div>
+            ) : (
+              <div>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+              </div>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
-          {
-          user?.uid ?
-          <div className="flex items-center">
-          <div className="tooltip tooltip-left" data-tip={`${user?.displayName}`}>
-              <img className="w-10 rounded-full" src={user?.photoURL} alt=""></img>
-          </div>
-          <Link className="btn ml-4 mr-4" onClick={handleLogOut}>Log Out</Link>
-          </div>
-          :
-          <Link className="btn" to='/login'>Login</Link>
-          }
+          {user?.uid ? (
+            <>
+            <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+            {user?.photoURL?
+              <img  className="tooltip w-8 rounded-full border border-gray-200" src={user?.photoURL} alt=""></img>
+              :
+                <FaUser></FaUser>
+            }
+            </div>
+            <Link onClick={logOut} className="btn btn-sm mx-4">Log Out</Link>
+            </>
+          ) : (
+            <Link className="btn" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

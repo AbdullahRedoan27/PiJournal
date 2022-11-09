@@ -4,7 +4,7 @@ import { RiDeleteBinFill, RiEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const MyReviewCard = ({singlereview, handleDelete}) => {
-  const { name, email, img, review, serviceName } = singlereview;
+  const { name, email, img, review, serviceName, _id } = singlereview;
   return (
     <div className="ml-3 mb-3 border border-slate-600 rounded-xl p-6">
       <div className="flex items-center justify-between">
@@ -21,7 +21,7 @@ const MyReviewCard = ({singlereview, handleDelete}) => {
           <p> {name}</p>
         </div>
         <div className="flex items-center gap-5">
-            <Link className="border border-slate-500 rounded p-1 hover:bg-slate-800"><RiEditFill></RiEditFill></Link>
+            <Link to={`/editReview/${_id}`} className="border border-slate-500 rounded p-1 hover:bg-slate-800"><RiEditFill></RiEditFill></Link>
             <button onClick={handleDelete} className="border border-slate-500 rounded p-1 hover:bg-slate-800"><RiDeleteBinFill></RiDeleteBinFill></button>
         </div>
       </div>

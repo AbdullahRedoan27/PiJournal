@@ -26,7 +26,8 @@ const Reviews = (props) => {
       img: user?.photoURL,
       serviceName: name,
       serviceId: _id,
-      review: message
+      review: message,
+      time :new Date().getTime()
     };
 
     fetch("http://localhost:5000/reviews", {

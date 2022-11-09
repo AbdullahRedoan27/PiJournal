@@ -21,6 +21,23 @@ const handleCreateUser = event =>{
     createUser(email, password)
     .then(result => {
         const user = result.user;
+        
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('http://localhost:5000/jwt',{
+        method:'post',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(currentUser)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        localStorage.setItem('PiToken', data.token)
+      })
         alert('user Created');
         form.reset();
         console.log(user);
@@ -48,6 +65,7 @@ const handleCreateUser = event =>{
                     placeholder="full name"
                     className="input input-bordered"
                     name="name"
+                    required
                   />
                 </div>
                 <div className="form-control">
@@ -70,6 +88,7 @@ const handleCreateUser = event =>{
                     placeholder="email"
                     className="input input-bordered"
                     name="email"
+                    required
                   />
                 </div>
                 <div className="form-control">
@@ -81,6 +100,7 @@ const handleCreateUser = event =>{
                     placeholder="password"
                     className="input input-bordered"
                     name="password"
+                    required
                   />
                   <label className="label">
                     <small>Already have an account?</small>

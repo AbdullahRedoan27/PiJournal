@@ -8,7 +8,7 @@ const ClientResponse = () => {
                 <p>Service Quality: <progress className="progress progress-info w-56" value="90" max="100"></progress>90%</p>
                 <p>Language: <progress className=" ml-9 progress progress-info w-56" value="95" max="100"></progress>95%</p>
                 <p>Price: <progress className="ml-16 progress progress-info w-56" value="85" max="100"></progress>85%</p>
-                <p>Fast Delivery: <progress className=" ml-6 progress progress-info w-56" value="90" max="100"></progress>90%</p>
+                <p>Fast Delivery: <progress className=" ml-3 progress progress-info w-56" value="90" max="100"></progress>90%</p>
             </div>
         </div>
     );

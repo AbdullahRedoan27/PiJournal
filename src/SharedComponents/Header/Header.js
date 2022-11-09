@@ -101,7 +101,7 @@ const Header = () => {
             <>
             <div className="tooltip tooltip-left" data-tip={user?.displayName}>
             {user?.photoURL?
-              <img  className="tooltip w-8 rounded-full border border-gray-200" src={user?.photoURL} alt=""></img>
+              <img className="tooltip w-8 rounded-full border border-gray-200" src={user.photoURL} alt=""></img>
               :
               <FaUser></FaUser>
             }

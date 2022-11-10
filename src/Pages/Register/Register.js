@@ -29,7 +29,7 @@ const Register = () => {
           email: user.email,
         };
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://pi-journal-server.vercel.app/jwt", {
           method: "post",
           headers: {
             "content-type": "application/json",

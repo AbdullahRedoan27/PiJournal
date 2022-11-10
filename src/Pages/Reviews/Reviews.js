@@ -11,7 +11,7 @@ const Reviews = (props) => {
 
   const location = useLocation();
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?id=${_id}`)
+    fetch(`https://pi-journal-server.vercel.app/reviews?id=${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [_id, reviews]);
@@ -35,7 +35,7 @@ const Reviews = (props) => {
       dateTime: {date, hh, mm}
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://pi-journal-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

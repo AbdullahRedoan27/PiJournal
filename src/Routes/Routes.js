@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://pi-journal-server.vercel.app/services/${params.id}`),
       },
       {
         path: "/myReviews",
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myReviews/${params.id}`),
+          fetch(`https://pi-journal-server.vercel.app/myReviews/${params.id}`),
       },
       {
         path: "/addService",

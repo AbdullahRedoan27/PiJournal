@@ -29,7 +29,7 @@ const Login = () => {
           email: user.email,
         };
         //jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://pi-journal-server.vercel.app/jwt", {
           method: "post",
           headers: {
             "content-type": "application/json",
@@ -47,7 +47,10 @@ const Login = () => {
         navigate(from, { replace: true });
         console.log(user);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error)
+        toast.error(`${error.message}`)
+      });
   };
 
   const handleGoogleLogin = () => {

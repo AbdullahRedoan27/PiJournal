@@ -9,7 +9,7 @@ const Services = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch("http://localhost:5000/services")
+    fetch("https://pi-journal-server.vercel.app/services")
       .then((result) => result.json())
       .then((data) => setServices(data));
       setLoading(false)

@@ -15,7 +15,7 @@ const EditReview = () => {
     const form = event.target
     const updatedReview = form.updatedReview.value;
     
-    fetch(`http://localhost:5000/editReview/${_id}`,{
+    fetch(`https://pi-journal-server.vercel.app/editReview/${_id}`,{
         method:"PATCH",
         headers: {
             'content-type':'application/json'

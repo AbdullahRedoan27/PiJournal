@@ -49,6 +49,7 @@ const AddService = () => {
             placeholder="Service Name"
             className="input input-bordered w-full max-w-xs"
             name="serviceName"
+            required
           />
         </div>
         <div className="form-control w-full max-w-xs">
@@ -62,6 +63,7 @@ const AddService = () => {
             placeholder="Description"
             className="textarea textarea-bordered w-full max-w-xs"
             name="description"
+            required
           />
         </div>
         <div className="form-control w-full max-w-xs">
@@ -75,6 +77,7 @@ const AddService = () => {
             placeholder="Price"
             className="input input-bordered w-full max-w-xs"
             name="price"
+            required
           />
         </div>
         <div className="form-control w-full max-w-xs">
@@ -102,6 +105,7 @@ const AddService = () => {
             placeholder="PhotoURL"
             className="input input-bordered w-full max-w-xs"
             name="photo"
+            
           />
         </div>
         <button className="btn btn-primary mt-3">Submit</button>

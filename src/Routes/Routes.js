@@ -11,6 +11,7 @@ import AddService from "../Pages/AddService/AddService";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import EditReview from "../Pages/EditReview/EditReview";
 import Blogs from "../Pages/Blogs/Blogs";
+import NotFound from "../Pages/PageNotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path:'/blogs',
         element:<Blogs></Blogs>
+      },
+      {
+        path:'*',
+        element:<NotFound></NotFound>
       }
     ],
   },

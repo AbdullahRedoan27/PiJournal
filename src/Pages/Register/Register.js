@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitleHook from "../../Hooks/useTitleHook";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
   useTitleHook("Register");
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  if (loading) {
+    return <div className="w-full h-full align-middle flex justify-center">
+      <button className="btn loading"></button>
+    </div>
+  }
 
   const handleCreateUser = (event) => {
+    setLoading(true)
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -24,7 +31,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-
         const currentUser = {
           email: user.email,
         };
@@ -41,6 +47,7 @@ const Register = () => {
             console.log(data);
             localStorage.setItem("PiToken", data.token);
           });
+        setLoading(false);
         toast.success("user Created");
         form.reset();
         console.log(user);
@@ -98,7 +105,7 @@ const Register = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="password"
                     className="input input-bordered"
                     name="password"

@@ -10,11 +10,15 @@ const MyReviews = () => {
   const [myReviews, setMyReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pi-journal-server.vercel.app/myReviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("PiToken")}`,
-      },
-    })
+    if (!user?.email) return;
+    fetch(
+      `https://pi-journal-server.vercel.app/myReviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("PiToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -45,13 +49,19 @@ const MyReviews = () => {
 
   return (
     <div>
-      {myReviews.map((review) => (
-        <MyReviewCard
-          key={review._id}
-          singlereview={review}
-          handleDelete={() => handleDelete(review._id)}
-        ></MyReviewCard>
-      ))}
+      {myReviews.length === 0 ? (
+        <p className="text-center">No Reviews To Show</p>
+      ) : (
+        <div>
+          {myReviews.map((review) => (
+            <MyReviewCard
+              key={review._id}
+              singlereview={review}
+              handleDelete={() => handleDelete(review._id)}
+            ></MyReviewCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

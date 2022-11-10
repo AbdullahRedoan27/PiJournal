@@ -11,8 +11,10 @@ const Services = () => {
     setLoading(true)
     fetch("https://pi-journal-server.vercel.app/services")
       .then((result) => result.json())
-      .then((data) => setServices(data));
-      setLoading(false)
+      .then((data) => {
+        setServices(data)
+        setLoading(false)
+      });
   }, []);
   return (
     <div>

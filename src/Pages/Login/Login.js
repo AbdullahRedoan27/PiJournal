@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitleHook from "../../Hooks/useTitleHook";
@@ -7,15 +7,23 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   useTitleHook("Login");
+  const [loading, setLoading] = useState(false)
   const { logIn, googleLogIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  if (loading) {
+    return <div className="w-full h-full align-middle flex justify-center">
+      <button className="btn loading"></button>
+    </div>
+  }
 
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
 
   const handleLogIn = (event) => {
+    setLoading(true);
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -41,7 +49,7 @@ const Login = () => {
             console.log(data);
             localStorage.setItem("PiToken", data.token);
           });
-
+        setLoading(false);
         toast.success("logged in");
         form.reset();
         navigate(from, { replace: true });
@@ -54,11 +62,12 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
+    setLoading(true)
     googleLogIn(googleProvider)
       .then((result) => {
+        setLoading(false);
         const user = result.user;
         navigate(from, { replace: true });
-        console.log(user);
       })
       .catch((error) => console.error(error));
   };
@@ -86,7 +95,7 @@ const Login = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="password"
                     className="input input-bordered"
                     name="password"

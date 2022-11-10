@@ -39,6 +39,9 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
+              <Link to="/">Home</Link>
+            </li>
+              <li>
                 <Link to="/services">Services</Link>
               </li>
               {user?.uid ? (
@@ -62,10 +65,10 @@ const Header = () => {
               )}
             </ul>
           </div>
-          <div className="lg:btn-wide w-3/5 p-0 flex items-center justify-start btn btn-ghost normal-case text-3xl">
-            <img className="lg:w-3/12 md:w-3/12 w-8/12" src={logo} alt=""></img>
+          <Link to='/' className="lg:btn-wide w-3/5 p-0 flex items-center justify-start btn btn-ghost normal-case text-3xl">
+            <img className="lg:w-3/12 md:w-3/12 w-8/12 m-0" src={logo} alt=""></img>
             <Link className="hidden md:block lg:block" to="/">PiJournal</Link>
-          </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -103,7 +106,7 @@ const Header = () => {
                 className="tooltip tooltip-left"
                 data-tip={user?.displayName}
               >
-                {user?.photoURL ? (
+                {user?.photoURL && user?.displayName ? (
                   <img
                     className="tooltip w-8 rounded-full border border-gray-200"
                     src={user.photoURL}

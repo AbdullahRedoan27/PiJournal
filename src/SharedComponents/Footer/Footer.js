@@ -4,14 +4,12 @@ import logo from '../../images/logo wh.png';
 
 const Footer = () => {
   return (
-    <div>
-        <footer className="footer p-3 mt-4 bg-neutral text-neutral-content rounded-t-xl">
-          <div className="ml-3">
+    <div className=" p-3 mt-4 bg-neutral text-neutral-content rounded-t-xl">
+        <footer className="footer flex justify-around">
+          <div>
             <p className="flex items-center">
-            <img className="w-1/6" src={logo} alt=""></img>
+              <img className="w-2/12 hidden md:flex lg:flex" src={logo} alt=""></img>
               <span className="text-3xl font-bold">PiJournal</span>
-              <br />
-              
             </p>
           </div>
           <div>
@@ -53,6 +51,7 @@ const Footer = () => {
             </div>
           </div>
         </footer>
+          <p className="text-center">copyright || Abdullah Redoan || 2022</p>
     </div>
   );
 };

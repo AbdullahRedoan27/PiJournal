@@ -62,9 +62,9 @@ const Header = () => {
               )}
             </ul>
           </div>
-          <div className="btn-wide btn btn-ghost normal-case text-3xl">
-            <img className="w-3/12" src={logo} alt=""></img>
-            <Link to="/">PiJournal</Link>
+          <div className="lg:btn-wide w-3/5 p-0 flex items-center justify-start btn btn-ghost normal-case text-3xl">
+            <img className="lg:w-3/12 md:w-3/12 w-8/12" src={logo} alt=""></img>
+            <Link className="hidden md:block lg:block" to="/">PiJournal</Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

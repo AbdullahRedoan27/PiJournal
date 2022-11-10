@@ -15,7 +15,7 @@ const HomeService = () => {
       <h2 className="text-center text-xl mt-5 mb-2">
         Some of my popular services
       </h2>
-      <div className="lg:grid lg:grid-cols-3 mx-auto w-11/12">
+      <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 mx-auto w-11/12">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}

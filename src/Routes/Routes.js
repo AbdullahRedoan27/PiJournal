@@ -10,6 +10,7 @@ import MyReviews from "../Pages/MyReviews/MyReviews";
 import AddService from "../Pages/AddService/AddService";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import EditReview from "../Pages/EditReview/EditReview";
+import Blogs from "../Pages/Blogs/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path:'/blogs',
+        element:<Blogs></Blogs>
+      }
     ],
   },
 ]);

@@ -7,7 +7,7 @@ const Stats = () => {
     <div>
       <h3 className="text-xl text-center mb-2">Clients review statistics</h3>
       <div className="mx-auto text-center">
-        <div className="stats bg-base-200 shadow">
+        <div className="stats bg-base-200 lg:w-3/5 lg:mx-auto shadow flex flex-col lg:flex-row md:flex-row">
           <div className="stat">
             <div className="stat-figure text-secondary">
               <FaUsers className="text-3xl"></FaUsers>

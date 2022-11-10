@@ -12,7 +12,7 @@ const Services = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="lg:grid lg:grid-cols-3 mx-auto">
+    <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 mx-auto">
       {services.map((service) => (
         <ServiceCard key={service._id} service={service}></ServiceCard>
       ))}

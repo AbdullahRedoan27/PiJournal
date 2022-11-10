@@ -45,15 +45,23 @@ const ServiceDetails = () => {
             </p>
           </div>
           <p className="mb-3">{description}</p>
-          <h4 className="font-semibold">Advantages:</h4>
-          <ul>
-            {points.map((point) => (
+          {
+            points ?
+            <div>
+              <h4 className="font-semibold">Advantages:</h4>
+              <ul>
+            {points?.map((point) => (
               <li key={point} className="ml-3 flex items-center">
                 <VscDebugBreakpointData />
                 {point}
               </li>
             ))}
           </ul>
+
+            </div>
+          :
+          <p>Advantages aren't available</p>
+          }
           <h3 className="text-2xl mt-3 font-semibold">
             Price: <span>{price}$</span>
             {priceUnit}

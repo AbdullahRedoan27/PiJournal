@@ -105,7 +105,6 @@ const AddService = () => {
             placeholder="PhotoURL"
             className="input input-bordered w-full max-w-xs"
             name="photo"
-            
           />
         </div>
         <button className="btn btn-primary mt-3">Submit</button>

@@ -7,6 +7,7 @@ import {toast} from 'react-toastify';
 const Reviews = (props) => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const [reFecth, setRefetch] = useState(false)
   const { _id, name } = props.service;
 
   const location = useLocation();
@@ -14,7 +15,7 @@ const Reviews = (props) => {
     fetch(`https://pi-journal-server.vercel.app/reviews?id=${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [_id, reviews]);
+  }, [_id, reFecth]);
 
   const handleAddReview = (event) => {
     event.preventDefault();
@@ -49,6 +50,7 @@ const Reviews = (props) => {
         if (data.acknowledged === true) {
             toast.success("review added");
         }
+        setRefetch(true);
       })
       .catch((err) => console.error(err));
   };

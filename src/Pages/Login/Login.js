@@ -56,8 +56,16 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => {
-        console.error(error)
-        toast.error(`${error.message}`)
+        console.log(error.message);
+        if(error.message === "Firebase: Error (auth/wrong-password)."){
+          console.log(error);
+          toast.error("Wrong password. please try again.")
+        }
+        else if(error.message === "Firebase: Error (auth/user-not-found)."){
+          console.log(error);
+          toast.error("No user is registered with this user name. Please try to register first.")
+        }
+        setLoading(false)
       });
   };
 

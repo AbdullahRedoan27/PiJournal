@@ -39,8 +39,8 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-              <Link to="/">Home</Link>
-            </li>
+                <Link to="/">Home</Link>
+              </li>
               <li>
                 <Link to="/services">Services</Link>
               </li>
@@ -65,9 +65,18 @@ const Header = () => {
               )}
             </ul>
           </div>
-          <Link to='/' className="lg:btn-wide w-3/5 p-0 flex items-center justify-start btn btn-ghost normal-case text-3xl">
-            <img className="lg:w-3/12 md:w-3/12 w-8/12 m-0" src={logo} alt=""></img>
-            <Link className="hidden md:block lg:block" to="/">PiJournal</Link>
+          <Link
+            to="/"
+            className="lg:btn-wide w-3/5 p-0 flex items-center justify-start btn btn-ghost normal-case text-3xl"
+          >
+            <img
+              className="lg:w-3/12 md:w-3/12 w-8/12 m-0"
+              src={logo}
+              alt=""
+            ></img>
+            <Link className="hidden md:block lg:block" to="/">
+              PiJournal
+            </Link>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
